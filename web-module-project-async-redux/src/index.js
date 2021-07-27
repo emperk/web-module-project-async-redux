@@ -1,14 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
+import reducer from "./reducers/moviesReducer";
+
 import App from "./App";
 import "./index.css";
 
+const store = createStore(reducer);
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(
-    <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   rootElement
 );
+
+// ReactDOM.render(
+//   <App />,
+//   rootElement
+// )
 
 
 // import React from 'react';
